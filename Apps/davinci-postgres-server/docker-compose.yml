@@ -1,4 +1,4 @@
-name: davinci-postgres server
+name: davinci-postgres-server
 services:
   app:
     image: postgres:13
