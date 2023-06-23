@@ -1,0 +1,76 @@
+name: unifi-video
+services:
+  app:
+    image: pducharme/unifi-video-controller:3.10.13
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      UMASK: ''
+      CONTEXT_PATH: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: UMASK
+          description:
+            en_us: ''
+        - container: CONTEXT_PATH
+          description:
+            en_us: ''
+    ports:
+      - target: 1935
+        published: 1935
+        protocol: tcp
+      - target: 7444
+        published: 7444
+        protocol: tcp
+      - target: 7447
+        published: 7447
+        protocol: tcp
+      - target: 6666
+        published: 6666
+        protocol: tcp
+      - target: 7442
+        published: 7442
+        protocol: tcp
+      - target: 7080
+        published: 7080
+        protocol: tcp
+      - target: 7443
+        published: 7443
+        protocol: tcp
+      - target: 7445
+        published: 7445
+        protocol: tcp
+      - target: 7446
+        published: 7446
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/UnifFiVideo/Recordings/
+        target: /recordings
+      - type: bind
+        source: /DATA/AppData/Config/UniFiVideo/
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: UniFi Video is a powerful and flexible, integrated IP video management surveillance system designed to work with Ubiquiti’s UniFi Video Camera product line. UniFi Video has an intuitive, configurable, and feature‑packed user interface with advanced features such as motion detection, auto‑discovery, user‑level security, storage management, reporting, and mobile device support.
+  tagline:
+    en_us: Unifi Video Is A Powerful And Flexible, Integrated Ip Video Management Surveillance System Designed To Work With Ubiquiti’s Unifi Video Camera Product Line. Unifi Video Has An Intuitive, Configurable, And Feature‑packed User Interface With Advanced Features Such As Motion Detection, Auto‑discovery, User‑level Security, Storage Management, Reporting, And Mobile Device Support.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/UniFiVideo-logo.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/UniFiVideo-logo.png
+  title:
+    en_us: Unifi Video
+  category: CCTV

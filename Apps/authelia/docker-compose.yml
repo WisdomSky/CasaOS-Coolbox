@@ -1,0 +1,37 @@
+name: authelia
+services:
+  app:
+    image: authelia/authelia:4
+    restart: unless-stopped
+    environment:
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 9091
+        published: 9091
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Authelia
+        target: /etc/authelia/
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.
+  tagline:
+    en_us: An Open-source Authentication And Authorization Server Providing 2-factor Authentication And Single Sign-on (sso) For Your Applications Via A Web Portal.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/authelia.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/authelia.png
+  title:
+    en_us: Authelia
+  category: Other

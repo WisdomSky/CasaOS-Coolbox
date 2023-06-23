@@ -1,0 +1,24 @@
+name: ubuntu
+services:
+  app:
+    image: ubuntu:latest
+    environment: {}
+    x-casaos:
+      envs: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Debian-based Linux operating system
+  tagline:
+    en_us: Debian-based Linux Operating System
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ubuntu.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ubuntu.png
+  title:
+    en_us: Ubuntu
+  category: operating-system

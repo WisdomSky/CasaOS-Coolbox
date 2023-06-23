@@ -1,0 +1,32 @@
+name: cratedb
+services:
+  app:
+    image: crate:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 4200
+        published: 4200
+        protocol: tcp
+      - target: 4300
+        published: 4300
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: An open-source distributed SQL database
+  tagline:
+    en_us: An Open-source Distributed Sql Database
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cratedb.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cratedb.png
+  title:
+    en_us: Cratedb
+  category: database

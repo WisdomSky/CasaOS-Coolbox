@@ -1,0 +1,74 @@
+name: transmission-openvpn
+services:
+  app:
+    image: haugene/transmission-openvpn:5
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      OPENVPN_PROVIDER: ''
+      OPENVPN_CONFIG: ''
+      OPENVPN_USERNAME: ''
+      OPENVPN_PASSWORD: ''
+      LOCAL_NETWORK: ''
+      TRANSMISSION_WATCH_DIR_ENABLED: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: OPENVPN_PROVIDER
+          description:
+            en_us: https://haugene.github.io/docker-transmission-openvpn/supported-providers/
+        - container: OPENVPN_CONFIG
+          description:
+            en_us: Optional. Mostly used to narrow down what location to use by the provider
+        - container: OPENVPN_USERNAME
+          description:
+            en_us: ''
+        - container: OPENVPN_PASSWORD
+          description:
+            en_us: ''
+        - container: LOCAL_NETWORK
+          description:
+            en_us: ''
+        - container: TRANSMISSION_WATCH_DIR_ENABLED
+          description:
+            en_us: ''
+    ports:
+      - target: 9091
+        published: 9091
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/transmission-openvpn
+        target: /config
+      - type: bind
+        source: /portainer/Downloads
+        target: /data
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This container contains OpenVPN and Transmission with a configurationwhere Transmission is running only when OpenVPN has an active tunnel.It bundles configuration files for many popular VPN providers to make the setup easier.
+  tagline:
+    en_us: |-
+      This Container Contains Openvpn And Transmission With A Configuration
+      where Transmission Is Running Only When Openvpn Has An Active Tunnel.
+      it Bundles Configuration Files For Many Popular Vpn Providers To Make The Setup Easier.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/transmission-icon.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/transmission-icon.png
+  title:
+    en_us: Transmission Openvpn V3
+  category: Other

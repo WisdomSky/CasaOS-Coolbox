@@ -1,0 +1,33 @@
+name: registry-(cache)
+services:
+  app:
+    image: registry:latest
+    environment:
+      REGISTRY_PROXY_REMOTEURL: ''
+    x-casaos:
+      envs:
+        - container: REGISTRY_PROXY_REMOTEURL
+          description:
+            en_us: ''
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Docker image registry configured as a DockerHub pull through cache
+  tagline:
+    en_us: Docker Image Registry Configured As A Dockerhub Pull Through Cache
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png
+  title:
+    en_us: Registry (cache)
+  category: docker

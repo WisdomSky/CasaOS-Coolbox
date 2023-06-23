@@ -1,0 +1,45 @@
+name: cloudflare-ddns
+services:
+  app:
+    image: favonia/cloudflare-ddns:sha256-5513d069280ddbdc5fbe2250693a0a52c4f73d1219fb0f7e49201f368ab635ff.sig
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      CF_API_TOKEN: ''
+      DOMAINS: ''
+      PROXIED: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: CF_API_TOKEN
+          description:
+            en_us: ''
+        - container: DOMAINS
+          description:
+            en_us: ''
+        - container: PROXIED
+          description:
+            en_us: ''
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Cloudflare DDNS - A small and fast DDNS updater for Cloudflare.
+  tagline:
+    en_us: Cloudflare Ddns - A Small And Fast Ddns Updater For Cloudflare.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/cloudflare-ddns.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/cloudflare-ddns.png
+  title:
+    en_us: Cloudflare Ddns
+  category: DNS

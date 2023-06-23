@@ -1,0 +1,73 @@
+name: adguard
+services:
+  app:
+    image: adguard/adguardhome:edge
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      CONTEXT_PATH: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: CONTEXT_PATH
+          description:
+            en_us: ''
+    ports:
+      - target: 53
+        published: 53
+        protocol: tcp
+      - target: 53
+        published: 53
+        protocol: udp
+      - target: 67
+        published: 67
+        protocol: udp
+      - target: 68
+        published: 68
+        protocol: tcp
+      - target: 68
+        published: 68
+        protocol: udp
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 853
+        published: 853
+        protocol: tcp
+      - target: 3000
+        published: 3000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Adguard/Workdir
+        target: /opt/adguardhome/work
+      - type: bind
+        source: /DATA/AppData/Adguard/Conf
+        target: /opt/adguardhome/conf
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: AdGuard Home is a network-wide software for blocking ads & tracking. After you set it up, it’ll cover ALL your home devices, and you don’t need any client-side software for that. With the rise of Internet-Of-Things and connected devices, it becomes more and more important to be able to control your whole network.
+  tagline:
+    en_us: Adguard Home Is A Network-wide Software For Blocking Ads & Tracking. After You Set It Up, It’ll Cover All Your Home Devices, And You Don’t Need Any Client-side Software For That. With The Rise Of Internet-of-things And Connected Devices, It Becomes More And More Important To Be Able To Control Your Whole Network.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/adguard.png
+  thumbnail: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/adguard.png
+  title:
+    en_us: Adguard
+  category: Other
+  port_map: '80'

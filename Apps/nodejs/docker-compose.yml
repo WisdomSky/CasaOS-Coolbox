@@ -1,0 +1,24 @@
+name: nodejs
+services:
+  app:
+    image: node:latest
+    environment: {}
+    x-casaos:
+      envs: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: JavaScript-based platform for server-side and networking applications
+  tagline:
+    en_us: Javascript-based Platform For Server-side And Networking Applications
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/node.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/node.png
+  title:
+    en_us: Nodejs
+  category: development

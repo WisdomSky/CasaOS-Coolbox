@@ -1,0 +1,39 @@
+name: cloudcmd
+services:
+  app:
+    image: coderaiser/cloudcmd:16.15.0
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /opt/mediadepot/apps
+        target: /media/host/opt/mediadepot
+      - type: bind
+        source: /media/storage
+        target: /media/host/media/storage
+      - type: bind
+        source: /media/temp
+        target: /media/host/media/temp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Cloud Commander a file manager for the web with console and editor.
+  tagline:
+    en_us: Cloud Commander A File Manager For The Web With Console And Editor.
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/cloudcmd-logo.png
+  thumbnail: https://mediadepot.github.io/templates/img/cloudcmd-logo.png
+  title:
+    en_us: Cloud Commander
+  category: 'Documents:'
+  port_map: '8000'

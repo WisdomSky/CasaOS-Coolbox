@@ -1,0 +1,29 @@
+name: floating-license-server
+services:
+  app:
+    image: softingindustrial/floating-license-server:v4-55
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 6200
+        published: 6200
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: License Server for Softing edgeConnector products
+  tagline:
+    en_us: License Server For Softing Edgeconnector Products
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  title:
+    en_us: Floating License Server
+  category: edge

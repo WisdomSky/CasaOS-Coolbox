@@ -1,0 +1,45 @@
+name: youtubedl-material
+services:
+  app:
+    image: tzahi12345/youtubedl-material:4.3.2
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 17442
+        published: 17442
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/YTDLM
+        target: /app/appdata
+      - type: bind
+        source: /DATA/AppData/Youtube/Video
+        target: /app/video
+      - type: bind
+        source: /DATA/AppData/Youtube/Subscriptions
+        target: /app/subscriptions
+      - type: bind
+        source: /DATA/AppData/Youtube/Users
+        target: /app/users
+      - type: bind
+        source: /DATA/AppData/Youtube/Audio
+        target: /app/audio
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.
+  tagline:
+    en_us: Youtubedl-material Is A Material Design Frontend For Youtube-dl. It's Coded Using Angular 9 For The Frontend, And Node.js On The Backend.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/ytdlm.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/ytdlm.png
+  title:
+    en_us: Youtubedl Material
+  category: Other

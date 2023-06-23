@@ -1,0 +1,41 @@
+name: maloja
+services:
+  app:
+    image: krateng/maloja:3.1.5
+    restart: unless-stopped
+    environment:
+      MALOJA_FORCE_PASSWORD: ''
+      MALOJA_DATA_DIRECTORY: ''
+    x-casaos:
+      envs:
+        - container: MALOJA_FORCE_PASSWORD
+          description:
+            en_us: ''
+        - container: MALOJA_DATA_DIRECTORY
+          description:
+            en_us: ''
+    ports:
+      - target: 42010
+        published: 42010
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Maloja/Data
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Simple self-hosted music scrobble database to create personal listening statistics. No recommendations, no social network, no nonsense.
+  tagline:
+    en_us: Simple Self-hosted Music Scrobble Database To Create Personal Listening Statistics. No Recommendations, No Social Network, No Nonsense.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/maloja.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/maloja.png
+  title:
+    en_us: Maloja
+  category: Music

@@ -1,0 +1,41 @@
+name: metube
+services:
+  app:
+    image: alexta69/metube:2023-06-23
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 8081
+        published: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /portainer/Downloads
+        target: /downloads
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Web GUI for youtube-dl (using the yt-dlp fork) with playlist support. Allows you to download videos from YouTube and dozens of other sites (https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+  tagline:
+    en_us: Web Gui For Youtube-dl (using The Yt-dlp Fork) With Playlist Support. Allows You To Download Videos From Youtube And Dozens Of Other Sites (https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/metube.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/metube.png
+  title:
+    en_us: Metube
+  category: Downloader

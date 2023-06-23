@@ -1,0 +1,42 @@
+name: searxng
+services:
+  app:
+    image: searxng/searxng:latest-build-cache
+    restart: unless-stopped
+    environment:
+      BASE_URL: ''
+      INSTANCE_NAME: ''
+    x-casaos:
+      envs:
+        - container: BASE_URL
+          description:
+            en_us: ''
+        - container: INSTANCE_NAME
+          description:
+            en_us: ''
+    ports:
+      - target: 9017
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/searxng
+        target: /etc/searxng
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-Source Privacy-respecting metasearch engine
+  tagline:
+    en_us: Open-source Privacy-respecting Metasearch Engine
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/searx.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/searx.png
+  title:
+    en_us: Searxng
+  category: Other
+  port_map: '9017'

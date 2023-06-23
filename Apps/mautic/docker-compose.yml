@@ -1,0 +1,38 @@
+name: mautic
+services:
+  app:
+    image: mautic/mautic:v4-apache
+    environment:
+      MAUTIC_DB_HOST: ''
+      MAUTIC_DB_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: MAUTIC_DB_HOST
+          description:
+            en_us: ''
+        - container: MAUTIC_DB_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source marketing automation platform
+  tagline:
+    en_us: Open-source Marketing Automation Platform
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mautic.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mautic.png
+  title:
+    en_us: Mautic
+  category: marketing
+  port_map: '80'

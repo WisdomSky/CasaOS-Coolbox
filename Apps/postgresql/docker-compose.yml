@@ -1,0 +1,37 @@
+name: postgresql
+services:
+  app:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ''
+      POSTGRES_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: POSTGRES_USER
+          description:
+            en_us: ''
+        - container: POSTGRES_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: The most advanced open-source database
+  tagline:
+    en_us: The Most Advanced Open-source Database
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/postgres.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/postgres.png
+  title:
+    en_us: Postgresql
+  category: database

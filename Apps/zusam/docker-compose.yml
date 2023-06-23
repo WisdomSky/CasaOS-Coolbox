@@ -1,0 +1,42 @@
+name: zusam
+services:
+  app:
+    image: zusam/zusam:0.5.3
+    restart: unless-stopped
+    environment:
+      INIT_USER: ''
+      INIT_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: INIT_USER
+          description:
+            en_us: ''
+        - container: INIT_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 4180
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Zusam
+        target: /zusam/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Zusam is a free and open-source way to self-host private forums for groups of friends.
+  tagline:
+    en_us: Zusam Is A Free And Open-source Way To Self-host Private Forums For Groups Of Friends.
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/zusam/zusam/raw/master/app/src/assets/zusam_logo.png
+  thumbnail: https://github.com/zusam/zusam/raw/master/app/src/assets/zusam_logo.png
+  title:
+    en_us: Zus.am
+  category: Social
+  port_map: '4180'

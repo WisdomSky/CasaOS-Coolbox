@@ -1,0 +1,74 @@
+name: droppy
+services:
+  app:
+    image: silverwind/droppy:12.2.0
+    environment:
+      GID: ''
+      UID: ''
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: GID
+          description:
+            en_us: ''
+        - container: UID
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 8989
+        published: 8989
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /media/storage/tvshows
+        target: /files/tvshows
+      - type: bind
+        source: /media/storage/movies
+        target: /files/movies
+      - type: bind
+        source: /media/storage/music
+        target: /files/music
+      - type: bind
+        source: /media/storage/photos
+        target: /files/photos
+      - type: bind
+        source: /media/storage/ebooks
+        target: /files/ebooks
+      - type: bind
+        source: /media/storage/documents
+        target: /files/documents
+      - type: bind
+        source: /media/storage/software
+        target: /files/software
+      - type: bind
+        source: /media/storage/downloads
+        target: /files/downloads
+      - type: bind
+        source: /media/temp/blackhole
+        target: /files/blackhole
+      - type: bind
+        source: /media/temp/processing
+        target: /files/processing
+      - type: bind
+        source: /opt/mediadepot/apps/droppy
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Droppy is a self-hosted file storage server
+  tagline:
+    en_us: Droppy Is A Self-hosted File Storage Server
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/filebrowser-icon.png
+  thumbnail: https://mediadepot.github.io/templates/img/filebrowser-icon.png
+  title:
+    en_us: Droppy
+  category: 'Tools:'

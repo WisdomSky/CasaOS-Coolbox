@@ -1,0 +1,49 @@
+name: opc-router
+services:
+  app:
+    image: opcrouter/runtime:4.28.3322.196
+    environment:
+      OR_DATABASE_USERNAME: ''
+      MONGO_INITDB_ROOT_USERNAME: ''
+      OR_DATABASE_PASSWORD: ''
+      MONGO_INITDB_ROOT_PASSWORD: ''
+      OR_I_ACCEPT_EULA: ''
+    x-casaos:
+      envs:
+        - container: OR_DATABASE_USERNAME
+          description:
+            en_us: ''
+        - container: MONGO_INITDB_ROOT_USERNAME
+          description:
+            en_us: ''
+        - container: OR_DATABASE_PASSWORD
+          description:
+            en_us: ''
+        - container: MONGO_INITDB_ROOT_PASSWORD
+          description:
+            en_us: ''
+        - container: OR_I_ACCEPT_EULA
+          description:
+            en_us: ''
+    ports:
+      - target: 27017
+        published: 27017
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: No-code middleware for industrial applications. The OPC Router connects PLCs, PCS, SCADA, MES, SQL databases and servers, label printers, e-mail servers and erp-systems via OPC UA, MQTT, REST, CSV and many others without any programming effort
+  tagline:
+    en_us: No-code Middleware For Industrial Applications. The Opc Router Connects Plcs, Pcs, Scada, Mes, Sql Databases And Servers, Label Printers, E-mail Servers And Erp-systems Via Opc Ua, Mqtt, Rest, Csv And Many Others Without Any Programming Effort
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/opc-router.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/opc-router.png
+  title:
+    en_us: Opc Router
+  category: edge

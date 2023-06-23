@@ -1,0 +1,39 @@
+name: magicmirror2
+services:
+  app:
+    image: karsten13/magicmirror:v2.23.0_fat
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: MagicMirror2 Server
+  tagline:
+    en_us: Magicmirror2 Server
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/MichMich/MagicMirror/raw/master/.github/header.png
+  thumbnail: https://github.com/MichMich/MagicMirror/raw/master/.github/header.png
+  title:
+    en_us: Magicmirror2
+  category: Dashboard Server
+  port_map: '8080'

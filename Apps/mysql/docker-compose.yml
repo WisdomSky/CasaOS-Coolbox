@@ -1,0 +1,33 @@
+name: mysql
+services:
+  app:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: MYSQL_ROOT_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: The most popular open-source database
+  tagline:
+    en_us: The Most Popular Open-source Database
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png
+  title:
+    en_us: Mysql
+  category: database

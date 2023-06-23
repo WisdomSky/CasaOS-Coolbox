@@ -1,0 +1,33 @@
+name: dashmachine
+services:
+  app:
+    image: rmountjoy/dashmachine:v0.5-4
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Dashmachine
+        target: /dashmachine/dashmachine/user_data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Another application bookmark dashboard, with fun features.
+  tagline:
+    en_us: Another Application Bookmark Dashboard, With Fun Features.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png
+  title:
+    en_us: Dashmachine
+  category: Other

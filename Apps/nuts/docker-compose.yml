@@ -1,0 +1,33 @@
+name: nuts
+services:
+  app:
+    image: upshift/nut-upsd:2.8.0
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3493
+        published: 3493
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/nuts
+        target: /app
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Network UPS Tools server
+  tagline:
+    en_us: Network Ups Tools Server
+  developer: ''
+  author: WisdomSky
+  icon: ''
+  thumbnail: ''
+  title:
+    en_us: Nuts
+  category: Network

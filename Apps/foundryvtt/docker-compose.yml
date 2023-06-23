@@ -1,0 +1,48 @@
+name: foundryvtt
+services:
+  app:
+    image: felddy/foundryvtt:11.302.0
+    environment:
+      FOUNDRY_USERNAME: ''
+      FOUNDRY_PASSWORD: ''
+      FOUNDRY_ADMIN_KEY: ''
+      CONTAINER_PRESERVE_CONFIG: ''
+    x-casaos:
+      envs:
+        - container: FOUNDRY_USERNAME
+          description:
+            en_us: ''
+        - container: FOUNDRY_PASSWORD
+          description:
+            en_us: ''
+        - container: FOUNDRY_ADMIN_KEY
+          description:
+            en_us: ''
+        - container: CONTAINER_PRESERVE_CONFIG
+          description:
+            en_us: ''
+    ports:
+      - target: 30000
+        published: 30000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/foundryvtt
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This docker image provides the FoundryVTT system for hosting your own virtual table top games.
+  tagline:
+    en_us: This Docker Image Provides The Foundryvtt System For Hosting Your Own Virtual Table Top Games.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/foundrylogo.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/foundrylogo.png
+  title:
+    en_us: Foundryvtt Server
+  category: Other

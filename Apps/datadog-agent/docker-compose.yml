@@ -1,0 +1,38 @@
+name: datadog-agent
+services:
+  app:
+    image: datadog/agent:6
+    environment:
+      DD_API_KEY: ''
+    x-casaos:
+      envs:
+        - container: DD_API_KEY
+          description:
+            en_us: ''
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: /sys/fs/cgroup
+        target: /host/sys/fs/cgroup
+      - type: bind
+        source: /proc
+        target: /host/proc
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Collect events and metrics
+  tagline:
+    en_us: Collect Events And Metrics
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/datadog_agent.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/datadog_agent.png
+  title:
+    en_us: Datadog Agent
+  category: Monitoring

@@ -1,0 +1,29 @@
+name: redis
+services:
+  app:
+    image: redis:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 6379
+        published: 6379
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source in-memory data structure store
+  tagline:
+    en_us: Open-source In-memory Data Structure Store
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png
+  title:
+    en_us: Redis
+  category: database

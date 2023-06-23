@@ -1,0 +1,36 @@
+name: magento-2
+services:
+  app:
+    image: alankent/gsd:0.5
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 3000
+        published: 3000
+        protocol: tcp
+      - target: 3001
+        published: 3001
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source e-commerce platform
+  tagline:
+    en_us: Open-source E-commerce Platform
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/magento.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/magento.png
+  title:
+    en_us: Magento 2
+  category: CMS
+  port_map: '80'

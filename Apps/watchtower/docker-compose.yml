@@ -1,0 +1,29 @@
+name: watchtower
+services:
+  app:
+    image: containrrr/watchtower:1.5.3
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.
+  tagline:
+    en_us: With Watchtower You Can Update The Running Version Of Your Containerized App Simply By Pushing A New Image To The Docker Hub Or Your Own Image Registry. Watchtower Will Pull Down Your New Image, Gracefully Shut Down Your Existing Container And Restart It With The Same Options That Were Used When It Was Deployed Initially.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/watchtower.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/watchtower.png
+  title:
+    en_us: Watchtower
+  category: Other

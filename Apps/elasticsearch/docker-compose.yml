@@ -1,0 +1,32 @@
+name: elasticsearch
+services:
+  app:
+    image: elasticsearch:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 9200
+        published: 9200
+        protocol: tcp
+      - target: 9300
+        published: 9300
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source search and analytics engine
+  tagline:
+    en_us: Open-source Search And Analytics Engine
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/elasticsearch.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/elasticsearch.png
+  title:
+    en_us: Elasticsearch
+  category: database

@@ -1,0 +1,47 @@
+name: unmanic
+services:
+  app:
+    image: josh5/unmanic:0.2.4
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 8888
+        published: 8888
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/unmanic/config
+        target: /config
+      - type: bind
+        source: /DATA/AppData/Config/unmanic/library
+        target: /library
+      - type: bind
+        source: /DATA/AppData/Config/unmanic/tmp
+        target: /tmp/unmanic
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Unmanic is a simple tool for optimising your file library. You can use it to convert your files into a single, uniform format, manage file movements based on timestamps, or execute custom commands against a file based on its file size.
+  tagline:
+    en_us: Unmanic Is A Simple Tool For Optimising Your File Library. You Can Use It To Convert Your Files Into A Single, Uniform Format, Manage File Movements Based On Timestamps, Or Execute Custom Commands Against A File Based On Its File Size.
+  developer: ''
+  author: WisdomSky
+  icon: https://docs.unmanic.app/img/icon.png
+  thumbnail: https://docs.unmanic.app/img/icon.png
+  title:
+    en_us: Unmanic
+  category: Tools

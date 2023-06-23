@@ -1,0 +1,41 @@
+name: overseerr
+services:
+  app:
+    image: hotio/overseerr:release-b7650b7
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 5055
+        published: 5055
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Overseerr
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Overseerr is a free and open source software application for managing requests for your media library.
+  tagline:
+    en_us: Overseerr Is A Free And Open Source Software Application For Managing Requests For Your Media Library.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/overseerr-icon.png
+  thumbnail: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/overseerr-icon.png
+  title:
+    en_us: Overseerr
+  category: Other

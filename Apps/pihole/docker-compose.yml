@@ -1,0 +1,49 @@
+name: pihole
+services:
+  app:
+    image: pihole/pihole:2023.05.2
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 53
+        published: 53
+        protocol: tcp
+      - target: 53
+        published: 53
+        protocol: udp
+      - target: 67
+        published: 67
+        protocol: udp
+      - target: 1010
+        published: 80
+        protocol: tcp
+      - target: 4443
+        published: 443
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/PiHole
+        target: /etc/pihole
+      - type: bind
+        source: /DATA/AppData/Config/PiHole/DNS
+        target: /etc/dnsmasq.d
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.
+  tagline:
+    en_us: A Linux Network-level Advertisement And Internet Tracker Blocking Application Which Acts As A Dns Sinkhole.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/pihole.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/pihole.png
+  title:
+    en_us: Pi Hole
+  category: Other
+  port_map: '1010'

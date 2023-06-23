@@ -1,0 +1,62 @@
+name: omada-controller
+services:
+  app:
+    image: mbentley/omada-controller:5.0
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 8088
+        published: 8088
+        protocol: tcp
+      - target: 8043
+        published: 8043
+        protocol: tcp
+      - target: 27001
+        published: 27001
+        protocol: udp
+      - target: 27002
+        published: 27002
+        protocol: tcp
+      - target: 29810
+        published: 29810
+        protocol: udp
+      - target: 29811
+        published: 29811
+        protocol: tcp
+      - target: 29812
+        published: 29812
+        protocol: tcp
+      - target: 29813
+        published: 29813
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Omada
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: TP-Link Omada is a software-defined network solution. The EAP Controller is used to manage multiple EAPs. Raspberry Pi 1 and Zero are not supported.
+  tagline:
+    en_us: Tp-link Omada Is A Software-defined Network Solution. The Eap Controller Is Used To Manage Multiple Eaps. Raspberry Pi 1 And Zero Are Not Supported.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/omada.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/omada.png
+  title:
+    en_us: Omada Eap Controller
+  category: Management

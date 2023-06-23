@@ -1,0 +1,47 @@
+name: archisteamfarm
+services:
+  app:
+    image: justarchi/archisteamfarm:5.4.7.2
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 1242
+        published: 1242
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/ArchiSteamFarm/config
+        target: /app/config
+      - type: bind
+        source: /DATA/AppData/Config/ArchiSteamFarm/plugins
+        target: /app/plugins
+      - type: bind
+        source: /DATA/AppData/Config/ArchiSteamFarm/logs
+        target: /app/logs
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: C# application with primary purpose of farming Steam cards from multiple accounts simultaneously.
+  tagline:
+    en_us: C# Application With Primary Purpose Of Farming Steam Cards From Multiple Accounts Simultaneously.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/resources/ASF_184x184.png
+  thumbnail: https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/resources/ASF_184x184.png
+  title:
+    en_us: Archisteamfarm
+  category: Other

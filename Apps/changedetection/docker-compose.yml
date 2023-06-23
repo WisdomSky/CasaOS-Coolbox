@@ -1,0 +1,29 @@
+name: changedetection
+services:
+  app:
+    image: dgtlmoon/changedetection.io:0.43
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/changedetection
+        target: /datastore
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Self-hosted website change detection monitoring.
+  tagline:
+    en_us: Self-hosted Website Change Detection Monitoring.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/changedetection-custom.png
+  thumbnail: https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/changedetection-custom.png
+  title:
+    en_us: Change Detection
+  category: Network

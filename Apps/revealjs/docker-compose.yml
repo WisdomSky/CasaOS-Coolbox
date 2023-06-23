@@ -1,0 +1,37 @@
+name: revealjs
+services:
+  app:
+    image: cloudogu/reveal.js:4.4.0-r4
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 6060
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/revealjs/docs/slides
+        target: /reveal/docs/slides
+      - type: bind
+        source: /DATA/AppData/Config/revealjs/scripts/test
+        target: /resources
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: It is an open source HTML presentation framework. It enables anyone with a web browser to create fully featured and beautiful presentations for free | Production Mode
+  tagline:
+    en_us: It Is An Open Source Html Presentation Framework. It Enables Anyone With A Web Browser To Create Fully Featured And Beautiful Presentations For Free | Production Mode
+  developer: ''
+  author: WisdomSky
+  icon: https://pbs.twimg.com/profile_images/1260911777929400325/_ClbHpsz_400x400.jpg
+  thumbnail: https://pbs.twimg.com/profile_images/1260911777929400325/_ClbHpsz_400x400.jpg
+  title:
+    en_us: Reveal.js
+  category: Presentation
+  port_map: '6060'

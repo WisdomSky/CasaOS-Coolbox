@@ -1,0 +1,57 @@
+name: nut-server
+services:
+  app:
+    image: instantlinux/nut-upsd:19.06
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      SERIAL: ''
+      NAME: ''
+      VENDOR ID: ''
+      API_PASSWORD: ''
+      DESCRIPTION: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: SERIAL
+          description:
+            en_us: ''
+        - container: NAME
+          description:
+            en_us: ''
+        - container: VENDOR ID
+          description:
+            en_us: ''
+        - container: API_PASSWORD
+          description:
+            en_us: ''
+        - container: DESCRIPTION
+          description:
+            en_us: ''
+    ports:
+      - target: 3493
+        published: 3493
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: The purpose of NUT Server is to monitor a UPS attached device
+  tagline:
+    en_us: The Purpose Of Nut Server Is To Monitor A Ups Attached Device
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/nut-server.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/nut-server.png
+  title:
+    en_us: Nut Server
+  category: Other

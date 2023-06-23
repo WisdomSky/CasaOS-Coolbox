@@ -1,0 +1,36 @@
+name: caddy
+services:
+  app:
+    image: abiosoft/caddy:1.0.3
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 2015
+        published: 2015
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: HTTP/2 web server with automatic HTTPS
+  tagline:
+    en_us: Http/2 Web Server With Automatic Https
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png
+  title:
+    en_us: Caddy
+  category: webserver
+  port_map: '80'

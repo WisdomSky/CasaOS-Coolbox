@@ -1,0 +1,36 @@
+name: influxdb1810
+services:
+  app:
+    image: influxdb:1.8.10
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8086
+        published: 8086
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Influxdb/data
+        target: /var/lib/influxdb
+      - type: bind
+        source: /DATA/AppData/Config/Influxdb/config
+        target: /etc/influxdb
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: InfluxDB is an open source time series database for recording metrics, events, and analytics.
+  tagline:
+    en_us: Influxdb Is An Open Source Time Series Database For Recording Metrics, Events, And Analytics.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/docker-library/docs/43d87118415bb75d7bb107683e79cd6d69186f67/influxdb/logo.png
+  thumbnail: https://raw.githubusercontent.com/docker-library/docs/43d87118415bb75d7bb107683e79cd6d69186f67/influxdb/logo.png
+  title:
+    en_us: Influxdb 1.8.10
+  category: Other

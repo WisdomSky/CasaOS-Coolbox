@@ -1,0 +1,36 @@
+name: alpine-xfce4-novnc
+services:
+  app:
+    image: novaspirit/alpine_xfce4_novnc:buildcache
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 6080
+        published: 6080
+        protocol: tcp
+      - target: 56780
+        published: 56780
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/alpine-xfce4-novnc/home/apline/downloads
+        target: /home/apline/downloads
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: ''
+  tagline:
+    en_us: ''
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/novnc.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/novnc.png
+  title:
+    en_us: Alpine Xfce4 Novnc
+  category: Other

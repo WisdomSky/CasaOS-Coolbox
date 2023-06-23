@@ -1,0 +1,32 @@
+name: rabbitmq
+services:
+  app:
+    image: rabbitmq:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 5671
+        published: 5671
+        protocol: tcp
+      - target: 5672
+        published: 5672
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Highly reliable enterprise messaging system
+  tagline:
+    en_us: Highly Reliable Enterprise Messaging System
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png
+  title:
+    en_us: Rabbitmq
+  category: messaging

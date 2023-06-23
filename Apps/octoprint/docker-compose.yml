@@ -1,0 +1,45 @@
+name: octoprint
+services:
+  app:
+    image: octoprint/octoprint:1.9.0
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ''
+      ENABLE_MJPG_STREAMER: ''
+    x-casaos:
+      envs:
+        - container: NODE_ENV
+          description:
+            en_us: ''
+        - container: ENABLE_MJPG_STREAMER
+          description:
+            en_us: ''
+    ports:
+      - target: 8051
+        published: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/OctoPrint
+        target: /octoprint
+      - type: bind
+        source: /dev
+        target: /dev
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: OctoPrint is an open source 3D printer controller application, which provides a web interface for the connected printers.
+  tagline:
+    en_us: Octoprint Is An Open Source 3d Printer Controller Application, Which Provides A Web Interface For The Connected Printers.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/octoprint.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/octoprint.png
+  title:
+    en_us: Octoprint
+  category: Other
+  port_map: '8051'

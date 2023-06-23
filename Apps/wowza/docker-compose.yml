@@ -1,0 +1,46 @@
+name: wowza
+services:
+  app:
+    image: sameersbn/wowza:4.1.2
+    environment:
+      WOWZA_ACCEPT_LICENSE: ''
+      WOWZA_KEY: ''
+    x-casaos:
+      envs:
+        - container: WOWZA_ACCEPT_LICENSE
+          description:
+            en_us: ''
+        - container: WOWZA_KEY
+          description:
+            en_us: ''
+    ports:
+      - target: 1935
+        published: 1935
+        protocol: tcp
+      - target: 8086
+        published: 8086
+        protocol: tcp
+      - target: 8087
+        published: 8087
+        protocol: tcp
+      - target: 8088
+        published: 8088
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Streaming media server
+  tagline:
+    en_us: Streaming Media Server
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wowza.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wowza.png
+  title:
+    en_us: Wowza
+  category: streaming

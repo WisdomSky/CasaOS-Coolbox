@@ -1,0 +1,59 @@
+name: chevereto
+services:
+  app:
+    image: nmtan/chevereto:1.2.3
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      CHEVERETO_DB_HOST: ''
+      CHEVERETO_DB_USERNAME: ''
+      CHEVERETO_DB_PASSWORD: ''
+      CHEVERETO_DB_NAME: ''
+      CHEVERETO_DB_PREFIX: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: CHEVERETO_DB_HOST
+          description:
+            en_us: ''
+        - container: CHEVERETO_DB_USERNAME
+          description:
+            en_us: ''
+        - container: CHEVERETO_DB_PASSWORD
+          description:
+            en_us: ''
+        - container: CHEVERETO_DB_NAME
+          description:
+            en_us: ''
+        - container: CHEVERETO_DB_PREFIX
+          description:
+            en_us: ''
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..
+  tagline:
+    en_us: Chevereto Is A Powerful And Fast Image Hosting Script That Allows You To Create Your Very Own Full Featured Image Hosting Website In Just Minutes. Please Note That This Offers Only The Free Chevereto Version..
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/Chevereto.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/Chevereto.png
+  title:
+    en_us: Chevereto
+  category: Other
+  port_map: '80'

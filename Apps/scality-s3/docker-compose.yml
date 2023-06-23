@@ -1,0 +1,38 @@
+name: scality-s3
+services:
+  app:
+    image: scality/s3server:0625484
+    environment:
+      SCALITY_ACCESS_KEY: ''
+      SCALITY_SECRET_KEY: ''
+    x-casaos:
+      envs:
+        - container: SCALITY_ACCESS_KEY
+          description:
+            en_us: ''
+        - container: SCALITY_SECRET_KEY
+          description:
+            en_us: ''
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Standalone AWS S3 protocol server
+  tagline:
+    en_us: Standalone Aws S3 Protocol Server
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/scality-s3.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/scality-s3.png
+  title:
+    en_us: Scality S3
+  category: storage
+  port_map: '8000'

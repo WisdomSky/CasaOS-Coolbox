@@ -1,0 +1,56 @@
+name: deluge-openvpn
+services:
+  app:
+    image: sgtsquiggs/deluge-openvpn:amd64-latest
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      OPENVPN_PROVIDER: ''
+      OPENVPN_USERNAME: ''
+      OPENVPN_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PUID
+          description:
+            en_us: ''
+        - container: OPENVPN_PROVIDER
+          description:
+            en_us: see https://github.com/sgtsquiggs/docker-deluge-openvpn
+        - container: OPENVPN_USERNAME
+          description:
+            en_us: ''
+        - container: OPENVPN_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 8112
+        published: 8112
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+      - type: bind
+        source: /portainer/Downloads
+        target: /downloads
+      - type: bind
+        source: /DATA/AppData/Config/DelugeOpenVPN/config
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.
+  tagline:
+    en_us: This Container Contains Openvpn And Deluge With A Configuration Where Deluge Is Running Only When Openvpn Has An Active Tunnel. It Bundles Configuration Files For Many Popular Vpn Providers To Make The Setup Easier.
+  developer: ''
+  author: WisdomSky
+  title:
+    en_us: Deluge Openvpn
+  category: Other

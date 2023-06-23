@@ -1,0 +1,42 @@
+name: surrealdb
+services:
+  app:
+    image: surrealdb/surrealdb:0.3.0
+    restart: unless-stopped
+    environment:
+      SDB_USERNAME: ''
+      SDB_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: SDB_USERNAME
+          description:
+            en_us: ''
+        - container: SDB_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 8020
+        published: 8000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/surrealdb/data
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: SurrealDB is an end-to-end cloud native database for web, mobile, serverless, jamstack, backend, and traditional applications.
+  tagline:
+    en_us: Surrealdb Is An End-to-end Cloud Native Database For Web, Mobile, Serverless, Jamstack, Backend, And Traditional Applications.
+  developer: ''
+  author: WisdomSky
+  icon: ''
+  thumbnail: ''
+  title:
+    en_us: Surrealdb
+  category: Other
+  port_map: '8020'

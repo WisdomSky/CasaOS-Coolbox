@@ -1,0 +1,60 @@
+name: qflood
+services:
+  app:
+    image: hotio/qflood:release-c98b876
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      UMASK: ''
+      TZ: $TZ
+      FLOOD_AUTH: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: UMASK
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+        - container: FLOOD_AUTH
+          description:
+            en_us: ''
+    ports:
+      - target: 3000
+        published: 3000
+        protocol: tcp
+      - target: 8080
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/qFlood
+        target: /config
+      - type: bind
+        source: /portainer/Downloads
+        target: /app/qBittorrent/downloads
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support. See the official documentation for WireGuard VPN support at https://hotio.dev/containers/qflood/
+  tagline:
+    en_us: A Docker Image With Qbittorrent And The Flood Ui, Also Optional Wireguard Vpn Support. See The Official Documentation For Wireguard Vpn Support At Https://hotio.dev/containers/qflood/
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/jesec/flood/master/flood.svg
+  thumbnail: https://raw.githubusercontent.com/jesec/flood/master/flood.svg
+  title:
+    en_us: Qflood
+  category: Downloaders
+  port_map: '8080'

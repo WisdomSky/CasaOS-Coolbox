@@ -1,0 +1,48 @@
+name: jdownloader
+services:
+  app:
+    image: jaymoulin/jdownloader:2.1.0
+    restart: unless-stopped
+    environment:
+      MYJD_DEVICE_NAME: ''
+      MYJD_USER: ''
+      MYJD_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: MYJD_DEVICE_NAME
+          description:
+            en_us: ''
+        - container: MYJD_USER
+          description:
+            en_us: ''
+        - container: MYJD_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 3129
+        published: 3129
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/JDownloader
+        target: /opt/JDownloader/app/cfg
+      - type: bind
+        source: /portainer/Downloads
+        target: /opt/JDownloader/Downloads
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: JDownloader docker image
+  tagline:
+    en_us: Jdownloader Docker Image
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/jdownloader.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/jdownloader.png
+  title:
+    en_us: Jdownloader
+  category: Downloaders

@@ -1,0 +1,37 @@
+name: homer
+services:
+  app:
+    image: b4bz/homer:22.02.2
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8902
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Homer/assets
+        target: /www/assets
+      - type: bind
+        source: /DATA/AppData/Config/Homer
+        target: /www/config.yml
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.
+  tagline:
+    en_us: A Dead Simple Static Homepage For Your Server To Keep Your S Ervices On Hand, From A Simple Yaml Configuration File.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/homer.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/homer.png
+  title:
+    en_us: Homer
+  category: Other
+  port_map: '8902'

@@ -1,0 +1,36 @@
+name: protonmail-bridge
+services:
+  app:
+    image: shenxn/protonmail-bridge:3.3.0-1
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 143
+        published: 143
+        protocol: tcp
+      - target: 25
+        published: 25
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/ProtonMail-Bridge
+        target: /root
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.
+  tagline:
+    en_us: This Is An Unofficial Docker Container Of The Protonmail Bridge. Some Of The Scripts Are Based On Hendrik Meyer's Work.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/protonmail-bridge.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/protonmail-bridge.png
+  title:
+    en_us: Protonmail Bridge
+  category: Email

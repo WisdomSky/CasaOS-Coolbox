@@ -1,0 +1,37 @@
+name: yacht
+services:
+  app:
+    image: selfhostedpro/yacht:v0.0.7-alpha-2023-01-12--05
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8001
+        published: 8000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: yacht
+        target: /config
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.
+  tagline:
+    en_us: A Web Interface For Managing Docker Containers With An Emphasis On Templating To Provide 1 Click Deployments. Think Of It Like A Decentralized App Store For Servers That Anyone Can Make Packages For.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/Yacht/master/readme_media/Yacht_logo_1_dark.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/Yacht/master/readme_media/Yacht_logo_1_dark.png
+  title:
+    en_us: Yacht
+  category: Other
+  port_map: '8001'

@@ -1,0 +1,78 @@
+name: mealie
+services:
+  app:
+    image: hkotel/mealie:frontend-v1.0.0beta-5
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+      WEB_CONCURRENCY: ''
+      MAX_WORKERS: ''
+      RECIPE_PUBLIC: ''
+      RECIPE_SHOW_NUTRITION: ''
+      RECIPE_SHOW_ASSETS: ''
+      RECIPE_LANDSCAPE_VIEW: ''
+      RECIPE_DISABLE_COMMENTS: ''
+      RECIPE_DISABLE_AMOUNT: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+        - container: WEB_CONCURRENCY
+          description:
+            en_us: ''
+        - container: MAX_WORKERS
+          description:
+            en_us: ''
+        - container: RECIPE_PUBLIC
+          description:
+            en_us: ''
+        - container: RECIPE_SHOW_NUTRITION
+          description:
+            en_us: ''
+        - container: RECIPE_SHOW_ASSETS
+          description:
+            en_us: ''
+        - container: RECIPE_LANDSCAPE_VIEW
+          description:
+            en_us: ''
+        - container: RECIPE_DISABLE_COMMENTS
+          description:
+            en_us: ''
+        - container: RECIPE_DISABLE_AMOUNT
+          description:
+            en_us: ''
+    ports:
+      - target: 9925
+        published: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/mealie
+        target: /app/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A self-hosted recipe manager and meal planner
+  tagline:
+    en_us: A Self-hosted Recipe Manager And Meal Planner
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/mealie.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/mealie.png
+  title:
+    en_us: Mealie
+  category: Other
+  port_map: '9925'

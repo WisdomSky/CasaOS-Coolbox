@@ -1,0 +1,30 @@
+name: cryptofolio
+services:
+  app:
+    image: xtrendence/cryptofolio:V.2.2.0
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 7280
+        published: 80
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Cryptofolio is an open-source, and self-hosted solution for tracking your cryptocurrency holdings. It features a web interface, an Android mobile app, and a cross-platform desktop application for Windows, macOS, and Linux.
+  tagline:
+    en_us: Cryptofolio Is An Open-source, And Self-hosted Solution For Tracking Your Cryptocurrency Holdings. It Features A Web Interface, An Android Mobile App, And A Cross-platform Desktop Application For Windows, Macos, And Linux.
+  developer: ''
+  author: WisdomSky
+  icon: https://i.imgur.com/5v8lzea.png
+  thumbnail: https://i.imgur.com/5v8lzea.png
+  title:
+    en_us: Cryptofolio
+  category: Dashboard
+  port_map: '7280'

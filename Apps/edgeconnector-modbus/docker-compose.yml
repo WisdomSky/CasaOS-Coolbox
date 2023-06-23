@@ -1,0 +1,34 @@
+name: edgeconnector-modbus
+services:
+  app:
+    image: softingindustrial/edgeconnector-modbus:v3-50
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 8099
+        published: 8099
+        protocol: tcp
+      - target: 4897
+        published: 4897
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Connect Modbus TCP Sensors/PLCs and provide the data via OPC UA and MQTT
+  tagline:
+    en_us: Connect Modbus Tcp Sensors/plcs And Provide The Data Via Opc Ua And Mqtt
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  title:
+    en_us: Edgeconnector Modbus
+  category: edge

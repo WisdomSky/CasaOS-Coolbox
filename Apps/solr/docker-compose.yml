@@ -1,0 +1,29 @@
+name: solr
+services:
+  app:
+    image: solr:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8983
+        published: 8983
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source enterprise search platform
+  tagline:
+    en_us: Open-source Enterprise Search Platform
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/solr.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/solr.png
+  title:
+    en_us: Solr
+  category: search-engine

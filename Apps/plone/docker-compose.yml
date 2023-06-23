@@ -1,0 +1,30 @@
+name: plone
+services:
+  app:
+    image: plone:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A free and open-source CMS built on top of Zope
+  tagline:
+    en_us: A Free And Open-source Cms Built On Top Of Zope
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plone.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plone.png
+  title:
+    en_us: Plone
+  category: CMS
+  port_map: '8080'

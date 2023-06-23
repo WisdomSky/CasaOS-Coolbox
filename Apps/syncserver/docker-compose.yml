@@ -1,0 +1,56 @@
+name: syncserver
+services:
+  app:
+    image: mozilla/syncserver:1.9.1
+    environment:
+      SYNCSERVER_PUBLIC_URL: ''
+      SYNCSERVER_SECRET_FILE: ''
+      SYNCSERVER_SQLURI: ''
+      SYNCSERVER_BATCH_UPLOAD_ENABLED: ''
+      SYNCSERVER_FORCE_WSGI_ENVIRON: ''
+      PORT: ''
+    x-casaos:
+      envs:
+        - container: SYNCSERVER_PUBLIC_URL
+          description:
+            en_us: ''
+        - container: SYNCSERVER_SECRET_FILE
+          description:
+            en_us: ''
+        - container: SYNCSERVER_SQLURI
+          description:
+            en_us: ''
+        - container: SYNCSERVER_BATCH_UPLOAD_ENABLED
+          description:
+            en_us: ''
+        - container: SYNCSERVER_FORCE_WSGI_ENVIRON
+          description:
+            en_us: ''
+        - container: PORT
+          description:
+            en_us: ''
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /opt/mediadepot/apps/syncserver
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Run-Your-Own Firefox Sync Server
+  tagline:
+    en_us: Run-your-own Firefox Sync Server
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/firefox-logo.png
+  thumbnail: https://mediadepot.github.io/templates/img/firefox-logo.png
+  title:
+    en_us: Mozilla Syncserver
+  category: 'Tools:'

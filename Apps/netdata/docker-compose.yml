@@ -1,0 +1,59 @@
+name: netdata
+services:
+  app:
+    image: netdata/netdata:1.34.0
+    restart: unless-stopped
+    environment:
+      DOCKER_USR: ''
+      DOCKER_GRP: ''
+    x-casaos:
+      envs:
+        - container: DOCKER_USR
+          description:
+            en_us: ''
+        - container: DOCKER_GRP
+          description:
+            en_us: ''
+    ports:
+      - target: 19999
+        published: 19999
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/netdata/netdataconfig
+        target: /etc/netdata
+      - type: bind
+        source: /DATA/AppData/Config/netdata/netdatalib
+        target: /var/lib/netdata
+      - type: bind
+        source: /etc/passwd
+        target: /host/etc/passwd:ro
+      - type: bind
+        source: /etc/group
+        target: /host/etc/group:ro
+      - type: bind
+        source: /proc
+        target: /host/proc:ro
+      - type: bind
+        source: /sys
+        target: /host/sys:ro
+      - type: bind
+        source: /etc/os-release
+        target: /host/etc/os-release:ro
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Troubleshoot slowdowns and anomalies in your infrastructure with thousands of per-second metrics, meaningful visualizations, and insightful health alarms with zero configuration.
+  tagline:
+    en_us: Troubleshoot Slowdowns And Anomalies In Your Infrastructure With Thousands Of Per-second Metrics, Meaningful Visualizations, And Insightful Health Alarms With Zero Configuration.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/netdata.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/netdata.png
+  title:
+    en_us: Netdata
+  category: Other

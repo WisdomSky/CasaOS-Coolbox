@@ -1,0 +1,120 @@
+name: pureftp
+services:
+  app:
+    image: stilliard/pure-ftpd:hardened
+    environment:
+      FTP_USER_NAME: ''
+      FTP_USER_PASS: ''
+      FTP_USER_HOME: ''
+      FTP_USER_GID: ''
+      FTP_USER_UID: ''
+      TZ: $TZ
+      PUBLICHOST: ''
+    x-casaos:
+      envs:
+        - container: FTP_USER_NAME
+          description:
+            en_us: ''
+        - container: FTP_USER_PASS
+          description:
+            en_us: ''
+        - container: FTP_USER_HOME
+          description:
+            en_us: ''
+        - container: FTP_USER_GID
+          description:
+            en_us: ''
+        - container: FTP_USER_UID
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+        - container: PUBLICHOST
+          description:
+            en_us: ''
+    ports:
+      - target: 21
+        published: 21
+        protocol: tcp
+      - target: 30000
+        published: 30000
+        protocol: tcp
+      - target: 30001
+        published: 30001
+        protocol: tcp
+      - target: 30002
+        published: 30002
+        protocol: tcp
+      - target: 30003
+        published: 30003
+        protocol: tcp
+      - target: 30004
+        published: 30004
+        protocol: tcp
+      - target: 30005
+        published: 30005
+        protocol: tcp
+      - target: 30006
+        published: 30006
+        protocol: tcp
+      - target: 30007
+        published: 30007
+        protocol: tcp
+      - target: 30008
+        published: 30008
+        protocol: tcp
+      - target: 30009
+        published: 30009
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /opt/mediadepot/apps/pureftp
+        target: /etc/pure-ftpd/passwd
+      - type: bind
+        source: /media/storage/tvshows
+        target: /data/tvshows
+      - type: bind
+        source: /media/storage/movies
+        target: /data/movies
+      - type: bind
+        source: /media/storage/music
+        target: /data/music
+      - type: bind
+        source: /media/storage/ebooks
+        target: /data/ebooks
+      - type: bind
+        source: /media/storage/photos
+        target: /data/photos
+      - type: bind
+        source: /media/storage/documents
+        target: /data/documents
+      - type: bind
+        source: /media/storage/downloads
+        target: /data/downloads
+      - type: bind
+        source: /media/storage/software
+        target: /data/software
+      - type: bind
+        source: /media/temp/blackhole
+        target: /data/blackhole
+      - type: bind
+        source: /media/temp/processing
+        target: /data/processing
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server.
+  tagline:
+    en_us: Pure-ftpd Is A Free (bsd), Secure, Production-quality And Standard-conformant Ftp Server.
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/pureftpd-icon.jpg
+  thumbnail: https://mediadepot.github.io/templates/img/pureftpd-icon.jpg
+  title:
+    en_us: Pure Ftp Server
+  category: Network:Other

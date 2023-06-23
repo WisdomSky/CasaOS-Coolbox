@@ -1,0 +1,29 @@
+name: registry
+services:
+  app:
+    image: registry:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Docker image registry
+  tagline:
+    en_us: Docker Image Registry
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png
+  title:
+    en_us: Registry
+  category: docker

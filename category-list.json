@@ -1,0 +1,237 @@
+[
+  {
+    "name": "Other",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Proxy",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Email",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "CCTV",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Task Server",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "webserver",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "development",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "CMS",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "database",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Monitoring",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "blog",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "serverless",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "continuous-integration",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "marketing",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "storage",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "project-management",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "messaging",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "docker",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Log Management",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "search-engine",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "streaming",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "operating-system",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "PaaS",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "edge",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Social",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Productivity",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Books",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Tools",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Network",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Dashboard",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Presentation",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Documents:",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Tools:",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Network:Other",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Dashboard Server",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Library Server",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Management Utility Server",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Web",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Downloader",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "DNS",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Tool",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "HomeAutomation",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Downloaders",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Video",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Music",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Management",
+    "font": "",
+    "description": ""
+  },
+  {
+    "name": "Cloud",
+    "font": "",
+    "description": ""
+  }
+]

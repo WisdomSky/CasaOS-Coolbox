@@ -1,0 +1,33 @@
+name: uptime-kuma
+services:
+  app:
+    image: louislam/uptime-kuma:1.21.3
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3001
+        published: 3001
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/UptimeKuma
+        target: /app/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: It is a self-hosted monitoring tool like Uptime Robot
+  tagline:
+    en_us: It Is A Self-hosted Monitoring Tool Like Uptime Robot
+  developer: ''
+  author: WisdomSky
+  icon: https://images.opencollective.com/uptime-kuma/29c5113/logo/256.png
+  thumbnail: https://images.opencollective.com/uptime-kuma/29c5113/logo/256.png
+  title:
+    en_us: Uptime Kuma
+  category: Task Server

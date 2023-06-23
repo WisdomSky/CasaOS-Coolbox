@@ -1,0 +1,30 @@
+name: vaultwarden
+services:
+  app:
+    image: vaultwarden/server:1.28.1
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports: []
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Vaultwarden
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.
+  tagline:
+    en_us: This Is A Bitwarden Server Api Implementation Written In Rust Compatible With Upstream Bitwarden Clients*, Perfect For Self-hosted Deployment Where Running The Official Resource-heavy Service Might Not Be Ideal.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/bitwarden.png
+  thumbnail: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/bitwarden.png
+  title:
+    en_us: Vaultwarden
+  category: Other

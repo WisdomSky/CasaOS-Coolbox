@@ -1,0 +1,100 @@
+name: vsftpd
+services:
+  app:
+    image: delfer/alpine-ftp-server:revert-22-master
+    environment:
+      ADDRESS: ''
+      USERS: ''
+    x-casaos:
+      envs:
+        - container: ADDRESS
+          description:
+            en_us: ''
+        - container: USERS
+          description:
+            en_us: ''
+    ports:
+      - target: 21
+        published: 21
+        protocol: tcp
+      - target: 21000
+        published: 21000
+        protocol: tcp
+      - target: 21001
+        published: 21001
+        protocol: tcp
+      - target: 21002
+        published: 21002
+        protocol: tcp
+      - target: 21003
+        published: 21003
+        protocol: tcp
+      - target: 21004
+        published: 21004
+        protocol: tcp
+      - target: 21005
+        published: 21005
+        protocol: tcp
+      - target: 21006
+        published: 21006
+        protocol: tcp
+      - target: 21007
+        published: 21007
+        protocol: tcp
+      - target: 21008
+        published: 21008
+        protocol: tcp
+      - target: 21009
+        published: 21009
+        protocol: tcp
+      - target: 21010
+        published: 21010
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /media/storage/tvshows
+        target: /home/depot/tvshows
+      - type: bind
+        source: /media/storage/movies
+        target: /home/depot/movies
+      - type: bind
+        source: /media/storage/music
+        target: /home/depot/music
+      - type: bind
+        source: /media/storage/ebooks
+        target: /home/depot/ebooks
+      - type: bind
+        source: /media/storage/photos
+        target: /home/depot/photos
+      - type: bind
+        source: /media/storage/documents
+        target: /home/depot/documents
+      - type: bind
+        source: /media/storage/downloads
+        target: /home/depot/downloads
+      - type: bind
+        source: /media/storage/software
+        target: /home/depot/software
+      - type: bind
+        source: /media/temp/blackhole
+        target: /home/depot/blackhole
+      - type: bind
+        source: /media/temp/processing
+        target: /home/depot/processing
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Secure, fast FTP server for UNIX-like systems
+  tagline:
+    en_us: Secure, Fast Ftp Server For Unix-like Systems
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/pureftpd-icon.jpg
+  thumbnail: https://mediadepot.github.io/templates/img/pureftpd-icon.jpg
+  title:
+    en_us: Vsftpd Ftp Server
+  category: Network:Other

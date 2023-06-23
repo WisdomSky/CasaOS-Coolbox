@@ -1,0 +1,64 @@
+name: samba
+services:
+  app:
+    image: dperson/samba:armhf
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      USERID: ''
+      GROUPID: ''
+      USER: ''
+      PERMISSIONS: ''
+      SHARE: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: USERID
+          description:
+            en_us: ''
+        - container: GROUPID
+          description:
+            en_us: ''
+        - container: USER
+          description:
+            en_us: ''
+        - container: PERMISSIONS
+          description:
+            en_us: ''
+        - container: SHARE
+          description:
+            en_us: ''
+    ports:
+      - target: 139
+        published: 139
+        protocol: tcp
+      - target: 445
+        published: 445
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /portainer/Downloads
+        target: /share
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as all versions of DOS and Windows, OS/2, Linux and many others.
+  tagline:
+    en_us: Samba Has Provided Secure, Stable And Fast File And Print Services For All Clients Using The Smb/cifs Protocol, Such As All Versions Of Dos And Windows, Os/2, Linux And Many Others.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/samba.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/samba.png
+  title:
+    en_us: Samba
+  category: Other

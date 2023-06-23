@@ -1,0 +1,30 @@
+name: ironfunctions-api
+services:
+  app:
+    image: iron/functions:0.2.72
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source serverless computing platform
+  tagline:
+    en_us: Open-source Serverless Computing Platform
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png
+  title:
+    en_us: Ironfunctions Api
+  category: serverless
+  port_map: '8080'

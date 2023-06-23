@@ -1,0 +1,33 @@
+name: flame-dashboard
+services:
+  app:
+    image: pawelmalak/flame:2.3.0
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 5005
+        published: 5005
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/flame-dashboard
+        target: /app/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.
+  tagline:
+    en_us: Flame Is Self-hosted Startpage For Your Server. Its Design Is Inspired (heavily) By Sui. Flame Is Very Easy To Setup And Use. With Built-in Editors, It Allows You To Setup Your Very Own Application Hub In No Time - No File Editing Necessary.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/flame.png
+  thumbnail: https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/flame.png
+  title:
+    en_us: Flame Dashboard
+  category: Tools

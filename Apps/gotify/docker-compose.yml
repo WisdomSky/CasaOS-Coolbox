@@ -1,0 +1,46 @@
+name: gotify
+services:
+  app:
+    image: gotify/server-arm7:2.2.4
+    restart: unless-stopped
+    environment:
+      TZ: $TZ
+      GOTIFY_DEFAULTUSER_NAME: ''
+      GOTIFY_DEFAULTUSER_PASS: ''
+    x-casaos:
+      envs:
+        - container: TZ
+          description:
+            en_us: ''
+        - container: GOTIFY_DEFAULTUSER_NAME
+          description:
+            en_us: ''
+        - container: GOTIFY_DEFAULTUSER_PASS
+          description:
+            en_us: ''
+    ports:
+      - target: 9008
+        published: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/gotify
+        target: /app/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A simple server for sending and receiving messages
+  tagline:
+    en_us: A Simple Server For Sending And Receiving Messages
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/gotify.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/gotify.png
+  title:
+    en_us: Gotify
+  category: Other
+  port_map: '9008'

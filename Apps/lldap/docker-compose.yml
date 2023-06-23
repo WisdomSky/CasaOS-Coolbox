@@ -1,0 +1,48 @@
+name: lldap
+services:
+  app:
+    image: nitnelave/lldap:latest-debian
+    restart: unless-stopped
+    environment:
+      LLDAP_JWT_SECRET: ''
+      LLDAP_LDAP_USER_PASS: ''
+      LLDAP_LDAP_BASE_DN: ''
+    x-casaos:
+      envs:
+        - container: LLDAP_JWT_SECRET
+          description:
+            en_us: ''
+        - container: LLDAP_LDAP_USER_PASS
+          description:
+            en_us: ''
+        - container: LLDAP_LDAP_BASE_DN
+          description:
+            en_us: ''
+    ports:
+      - target: 3890
+        published: 3890
+        protocol: tcp
+      - target: 17170
+        published: 17170
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/lldap/data
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This project is a lightweight authentication server that provides an opinionated, simplified LDAP interface for authentication.
+  tagline:
+    en_us: This Project Is A Lightweight Authentication Server That Provides An Opinionated, Simplified Ldap Interface For Authentication.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/lldap.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/lldap.png
+  title:
+    en_us: Lldap
+  category: Tools

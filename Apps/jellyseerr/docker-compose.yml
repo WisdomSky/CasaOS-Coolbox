@@ -1,0 +1,49 @@
+name: jellyseerr
+services:
+  app:
+    image: fallenbagel/jellyseerr:1.5.0
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      LOG_LEVEL: ''
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: LOG_LEVEL
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 5055
+        published: 5055
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Jellyseerr
+        target: /app/config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Jellyseerr is a free and open source software application for managing requests for your media library. It is a a fork of Overseerr built to bring support for Jellyfin & Emby media servers!
+  tagline:
+    en_us: Jellyseerr Is A Free And Open Source Software Application For Managing Requests For Your Media Library. It Is A A Fork Of Overseerr Built To Bring Support For Jellyfin & Emby Media Servers!
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/jellyseerr.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/jellyseerr.png
+  title:
+    en_us: Jellyseerr
+  category: Video

@@ -1,0 +1,33 @@
+name: huginn
+services:
+  app:
+    image: huginn/huginn:ba93bdf8b2bc0927b7b55f78b576c41965ad8389
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3000
+        published: 3000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/huginn
+        target: /var/lib/mysql
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Create agents that monitor and act on your behalf.
+  tagline:
+    en_us: Create Agents That Monitor And Act On Your Behalf.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/huginn.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/huginn.png
+  title:
+    en_us: Huginn
+  category: Other

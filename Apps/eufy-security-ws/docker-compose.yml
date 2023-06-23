@@ -1,0 +1,41 @@
+name: eufy-security-ws
+services:
+  app:
+    image: bropat/eufy-security-ws:1.5.2
+    restart: unless-stopped
+    environment:
+      USERNAME: ''
+      PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: USERNAME
+          description:
+            en_us: ''
+        - container: PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 3993
+        published: 3000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/eufy-security-ws
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Eufy Security Web Socket. Edit container and add username & password.
+  tagline:
+    en_us: Eufy Security Web Socket. Edit Container And Add Username & Password.
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/bropat/eufy-security-ws/raw/master/docs/_media/eufy-security-ws.png
+  thumbnail: https://github.com/bropat/eufy-security-ws/raw/master/docs/_media/eufy-security-ws.png
+  title:
+    en_us: Eufy Security Ws
+  category: Tools

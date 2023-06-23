@@ -1,0 +1,42 @@
+name: eclipse-mosquitto
+services:
+  app:
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 1883
+        published: 1883
+        protocol: tcp
+      - target: 9001
+        published: 9001
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/eclipse-mosquitto/config
+        target: /mosquitto/config
+      - type: bind
+        source: /DATA/AppData/Config/eclipse-mosquitto/data
+        target: /mosquitto/data
+      - type: bind
+        source: /DATA/AppData/Config/eclipse-mosquitto/log
+        target: /mosquitto/log
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: "Eclipse Mosquitto is an open source message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1. Mosquitto is lightweight and is suitable for use on all devices from low power single board computers to full servers.\rHave a look on https://mosquitto.org/man/mosquitto_passwd-1.html"
+  tagline:
+    en_us: "Eclipse Mosquitto Is An Open Source Message Broker That Implements The Mqtt Protocol Versions 5.0, 3.1.1 And 3.1. Mosquitto Is Lightweight And Is Suitable For Use On All Devices From Low Power Single Board Computers To Full Servers.\r\nhave A Look On Https://mosquitto.org/man/mosquitto_passwd-1.html"
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/eclipse-mosquitto.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/eclipse-mosquitto.png
+  title:
+    en_us: Eclipse Mosquitto Mqtt
+  category: Other

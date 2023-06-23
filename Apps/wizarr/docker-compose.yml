@@ -1,0 +1,39 @@
+name: wizarr
+services:
+  app:
+    image: ghcr.io/wizarrrr/wizarr:dev
+    environment:
+      APP_URL: ''
+    x-casaos:
+      envs:
+        - container: APP_URL
+          description:
+            en_us: ''
+    ports:
+      - target: 5690
+        published: 5690
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /opt/mediadepot/apps/wizarr
+        target: /data/database
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: ' Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.'
+  tagline:
+    en_us: ' Wizarr Is An Advanced User Invitation And Management System For Jellyfin, Plex, Emby Etc.'
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/wizarr-logo.png
+  thumbnail: https://mediadepot.github.io/templates/img/wizarr-logo.png
+  title:
+    en_us: Wizarr
+  category: 'Tools:'

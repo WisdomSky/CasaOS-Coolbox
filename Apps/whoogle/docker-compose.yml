@@ -1,0 +1,33 @@
+name: whoogle
+services:
+  app:
+    image: benbusby/whoogle-search:0.8.2
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 5001
+        published: 5000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Whoogle
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Self-hosted, ad-free, privacy-respecting Google metasearch engine.
+  tagline:
+    en_us: Self-hosted, Ad-free, Privacy-respecting Google Metasearch Engine.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/whoogle.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/whoogle.png
+  title:
+    en_us: Whoogle
+  category: Other

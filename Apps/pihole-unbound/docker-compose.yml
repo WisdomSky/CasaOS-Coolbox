@@ -1,0 +1,66 @@
+name: pihole-unbound
+services:
+  app:
+    image: cbcrowe/pihole-unbound:2023.02.2
+    restart: unless-stopped
+    environment:
+      ServerIP: ''
+      TZ: $TZ
+      DNSSEC: ''
+      DNS1: ''
+      DNS2: ''
+    x-casaos:
+      envs:
+        - container: ServerIP
+          description:
+            en_us: Insert the Raspberry Pi IP here
+        - container: TZ
+          description:
+            en_us: ''
+        - container: DNSSEC
+          description:
+            en_us: ''
+        - container: DNS1
+          description:
+            en_us: ''
+        - container: DNS2
+          description:
+            en_us: ''
+    ports:
+      - target: 53
+        published: 53
+        protocol: tcp
+      - target: 53
+        published: 53
+        protocol: udp
+      - target: 1010
+        published: 80
+        protocol: tcp
+      - target: 4443
+        published: 443
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/PiHole-Unbound
+        target: /etc/pihole
+      - type: bind
+        source: /DATA/AppData/Config/PiHole-Unbound/DNS
+        target: /etc/dnsmasq.d
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers. When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article here
+  tagline:
+    en_us: A Linux Network-level Advertisement And Internet Tracker Blocking Application Which Acts As A Dns Sinkhole. This Version Has Ubound Software Installed On It So You Don't Need To Rely On External Dns Providers. When The Installation Is Complete, Navigate To Your.ip.goes.here:1010/admin. Follow The Article here
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/pihole-unbound.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/pihole-unbound.png
+  title:
+    en_us: Pi Hole-unbound
+  category: Other
+  port_map: '1010'

@@ -1,0 +1,36 @@
+name: sematext-agent
+services:
+  app:
+    image: sematext/sematext-agent-docker:1.31.74
+    environment:
+      LOGSENE_TOKEN: ''
+      SPM_TOKEN: ''
+    x-casaos:
+      envs:
+        - container: LOGSENE_TOKEN
+          description:
+            en_us: ''
+        - container: SPM_TOKEN
+          description:
+            en_us: ''
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Collect logs, metrics and docker events
+  tagline:
+    en_us: Collect Logs, Metrics And Docker Events
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/sematext_agent.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/sematext_agent.png
+  title:
+    en_us: Sematext Docker Agent
+  category: Log Management

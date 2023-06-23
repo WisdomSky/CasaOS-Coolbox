@@ -1,0 +1,52 @@
+name: nginx-proxy-manager-v3
+services:
+  app:
+    image: jc21/nginx-proxy-manager:2
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 81
+        published: 81
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/nginx-proxy-manager-v3/data
+        target: /data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: '[DEVEL] Not ready for production.  Nginx Proxy Manager v3 Develop enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/pi-hosted/pi-hosted/tree/master/docs installing the template'
+  tagline:
+    en_us: '[devel] Not Ready For Production.  Nginx Proxy Manager V3 Develop Enables You To Easily Forward To Your Websites Running At Home Or Otherwise, Including Free Ssl, Without Having To Know Too Much About Nginx Or Letsencrypt.  Please See The Install Document At Https://github.com/pi-hosted/pi-hosted/tree/master/docs Installing The Template'
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/proxy_mgr.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/proxy_mgr.png
+  title:
+    en_us: Nginx Proxy Manager V3 [devel] Not Ready For Use
+  category: Proxy
+  port_map: '80'

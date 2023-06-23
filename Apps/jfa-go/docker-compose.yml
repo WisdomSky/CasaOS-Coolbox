@@ -1,0 +1,39 @@
+name: jfa-go
+services:
+  app:
+    image: hrfee/jfa-go:unstable
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8056
+        published: 8056
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Jelllyfin
+        target: /jf
+      - type: bind
+        source: /DATA/AppData/Config/jfago
+        target: /data
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: jfa-go is a user management app for Jellyfin (and now Emby) that provides invite-based account creation as well as other features that make one's instance much easier to manage.
+  tagline:
+    en_us: Jfa-go Is A User Management App For Jellyfin (and Now Emby) That Provides Invite-based Account Creation As Well As Other Features That Make One's Instance Much Easier To Manage.
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/hrfee/jfa-go/raw/main/images/jfa-go-icon.png
+  thumbnail: https://github.com/hrfee/jfa-go/raw/main/images/jfa-go-icon.png
+  title:
+    en_us: Jellyfin Accounts
+  category: Video

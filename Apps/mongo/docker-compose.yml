@@ -1,0 +1,29 @@
+name: mongo
+services:
+  app:
+    image: mongo:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 27017
+        published: 27017
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source document-oriented database
+  tagline:
+    en_us: Open-source Document-oriented Database
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png
+  title:
+    en_us: Mongo
+  category: database

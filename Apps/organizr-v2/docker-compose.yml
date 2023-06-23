@@ -1,0 +1,42 @@
+name: organizr-v2
+services:
+  app:
+    image: organizr/organizr:linux-amd64
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Organizr
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.
+  tagline:
+    en_us: Organizr Allows You To Setup Tabs That Will Be Loaded All In One Webpage. You Can Then Work On Your Server With Ease.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/organizr-icon.png
+  thumbnail: https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/organizr-icon.png
+  title:
+    en_us: Organizr
+  category: Other
+  port_map: '80'

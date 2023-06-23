@@ -1,0 +1,33 @@
+name: gaps
+services:
+  app:
+    image: housewrecker/gaps:risc-v0.10.4
+    environment:
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 8484
+        published: 8484
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Gaps searches through your Plex Server or local folders for all movies, then queries for known movies in the same collection.
+  tagline:
+    en_us: Gaps Searches Through Your Plex Server Or Local Folders For All Movies, Then Queries For Known Movies In The Same Collection.
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/plex-icon.png
+  thumbnail: https://mediadepot.github.io/templates/img/plex-icon.png
+  title:
+    en_us: Gaps
+  category: 'Tools:'

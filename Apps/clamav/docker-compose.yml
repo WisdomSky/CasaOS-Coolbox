@@ -1,0 +1,42 @@
+name: clamav
+services:
+  app:
+    image: mkodockx/docker-clamav:buster
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3310
+        published: 3310
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /etc/timezone
+        target: /etc/timezone
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+      - type: bind
+        source: /DATA/AppData/Config/clamav/config
+        target: /etc/clamav
+      - type: bind
+        source: /DATA/AppData/Config/clamav/virus_definitions
+        target: /var/lib/clamav
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: ClamAV® is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
+  tagline:
+    en_us: Clamav® Is An Open Source Antivirus Engine For Detecting Trojans, Viruses, Malware & Other Malicious Threats.
+  developer: ''
+  author: WisdomSky
+  icon: http://www.clamav.net/assets/clamav-trademark.png
+  thumbnail: http://www.clamav.net/assets/clamav-trademark.png
+  title:
+    en_us: Clamav
+  category: Other

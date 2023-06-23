@@ -1,0 +1,41 @@
+name: odoo
+services:
+  app:
+    image: odoo:latest
+    environment:
+      HOST: ''
+      USER: ''
+      PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: HOST
+          description:
+            en_us: ''
+        - container: USER
+          description:
+            en_us: ''
+        - container: PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 8069
+        published: 8069
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source business apps
+  tagline:
+    en_us: Open-source Business Apps
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png
+  title:
+    en_us: Odoo
+  category: project-management

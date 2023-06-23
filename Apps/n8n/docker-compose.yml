@@ -1,0 +1,45 @@
+name: n8n
+services:
+  app:
+    image: n8nio/n8n:0.234.0
+    restart: unless-stopped
+    environment:
+      N8N_BASIC_AUTH_ACTIVE: ''
+      N8N_BASIC_AUTH_USER: ''
+      N8N_BASIC_AUTH_PASSWORD: ''
+    x-casaos:
+      envs:
+        - container: N8N_BASIC_AUTH_ACTIVE
+          description:
+            en_us: ''
+        - container: N8N_BASIC_AUTH_USER
+          description:
+            en_us: ''
+        - container: N8N_BASIC_AUTH_PASSWORD
+          description:
+            en_us: ''
+    ports:
+      - target: 5678
+        published: 5678
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/n8n
+        target: /home/node/.n8n
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: n8n is an extendable workflow automation tool.
+  tagline:
+    en_us: N8n Is An Extendable Workflow Automation Tool.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/n8n.jpg
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/n8n.jpg
+  title:
+    en_us: N8n
+  category: Other

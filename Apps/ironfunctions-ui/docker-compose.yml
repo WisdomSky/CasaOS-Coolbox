@@ -1,0 +1,33 @@
+name: ironfunctions-ui
+services:
+  app:
+    image: iron/functions-ui:0.0.5
+    environment:
+      API_URL: ''
+    x-casaos:
+      envs:
+        - container: API_URL
+          description:
+            en_us: ''
+    ports:
+      - target: 4000
+        published: 4000
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source user interface for IronFunctions
+  tagline:
+    en_us: Open-source User Interface For Ironfunctions
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png
+  title:
+    en_us: Ironfunctions Ui
+  category: serverless

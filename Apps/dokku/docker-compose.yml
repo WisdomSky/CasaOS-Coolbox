@@ -1,0 +1,50 @@
+name: dokku
+services:
+  app:
+    image: dokku/dokku:0.30.7
+    environment:
+      DOKKU_HOSTNAME: ''
+      DOKKU_HOST_ROOT: ''
+    x-casaos:
+      envs:
+        - container: DOKKU_HOSTNAME
+          description:
+            en_us: Global hostname to be registered by Dokku
+        - container: DOKKU_HOST_ROOT
+          description:
+            en_us: Image build cache path. Generally set to  + '/home/dokku'
+    ports:
+      - target: 22
+        published: 22
+        protocol: tcp
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /var/lib/dokku
+        target: /mnt/dokku
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Dokku setup as a container
+  tagline:
+    en_us: Dokku Setup As A Container
+  developer: ''
+  author: WisdomSky
+  icon: ''
+  thumbnail: ''
+  title:
+    en_us: Dokku
+  category: PaaS
+  port_map: '80'

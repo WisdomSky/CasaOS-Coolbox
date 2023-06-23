@@ -1,0 +1,45 @@
+name: flaresolverr
+services:
+  app:
+    image: ghcr.io/flaresolverr/flaresolverr:v3.2.0
+    restart: unless-stopped
+    environment:
+      LOG_LEVEL: ''
+      LOG_HTML: ''
+      CAPTCHA_SOLVER: ''
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: LOG_LEVEL
+          description:
+            en_us: ''
+        - container: LOG_HTML
+          description:
+            en_us: ''
+        - container: CAPTCHA_SOLVER
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 8191
+        published: 8191
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.
+  tagline:
+    en_us: Flaresolverr Is A Proxy Server To Bypass Cloudflare And Ddos-guard Protection.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/FlareSolverr/FlareSolverr/c48d342b9cfb65d7696b96e9867fcff0ae87a0e2/resources/flaresolverr_logo.svg
+  thumbnail: https://raw.githubusercontent.com/FlareSolverr/FlareSolverr/c48d342b9cfb65d7696b96e9867fcff0ae87a0e2/resources/flaresolverr_logo.svg
+  title:
+    en_us: Flaresolverr
+  category: Other

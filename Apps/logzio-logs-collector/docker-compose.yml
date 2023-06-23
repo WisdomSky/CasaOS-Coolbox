@@ -1,0 +1,40 @@
+name: logzio-logs-collector
+services:
+  app:
+    image: logzio/docker-collector-logs:0.4.0
+    environment:
+      LOGZIO_TOKEN: ''
+      LOGZIO_URL: ''
+    x-casaos:
+      envs:
+        - container: LOGZIO_TOKEN
+          description:
+            en_us: ''
+        - container: LOGZIO_URL
+          description:
+            en_us: ''
+    ports: []
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: /var/lib/docker/containers
+        target: /var/lib/docker/containers
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Docker container that uses Filebeat to collect logs from other Docker containers and forward those logs to your Logz.io account.
+  tagline:
+    en_us: Docker Container That Uses Filebeat To Collect Logs From Other Docker Containers And Forward Those Logs To Your Logz.io Account.
+  developer: ''
+  author: WisdomSky
+  icon: https://mediadepot.github.io/templates/img/logzio-icon.png
+  thumbnail: https://mediadepot.github.io/templates/img/logzio-icon.png
+  title:
+    en_us: Logzio Logs Collector
+  category: 'Tools:'

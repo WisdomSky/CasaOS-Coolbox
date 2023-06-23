@@ -1,0 +1,66 @@
+name: nord-vpn
+services:
+  app:
+    image: azinchen/nordvpn:2.9.0
+    restart: unless-stopped
+    environment:
+      USER: ''
+      PASS: ''
+      COUNTRY: ''
+      GROUP: ''
+      RANDOM_TOP: ''
+      RECREATE_VPN_CRON: ''
+      CHECK_CONNECTION_URL: ''
+      NETWORK: ''
+      OPENVPN_OPTS: ''
+    x-casaos:
+      envs:
+        - container: USER
+          description:
+            en_us: ''
+        - container: PASS
+          description:
+            en_us: ''
+        - container: COUNTRY
+          description:
+            en_us: ''
+        - container: GROUP
+          description:
+            en_us: ''
+        - container: RANDOM_TOP
+          description:
+            en_us: ''
+        - container: RECREATE_VPN_CRON
+          description:
+            en_us: ''
+        - container: CHECK_CONNECTION_URL
+          description:
+            en_us: ''
+        - container: NETWORK
+          description:
+            en_us: ''
+        - container: OPENVPN_OPTS
+          description:
+            en_us: ''
+    ports:
+      - target: 8080
+        published: 80
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: This is an OpenVPN client docker container that uses recommended NordVPN server. It makes routing containers traffic through OpenVPN easy.
+  tagline:
+    en_us: This Is An Openvpn Client Docker Container That Uses Recommended Nordvpn Server. It Makes Routing Containers Traffic Through Openvpn Easy.
+  developer: ''
+  author: WisdomSky
+  icon: https://s3.us-east-2.amazonaws.com/ccp-prd-s3-uploads/2022/3/8/03500108885898f010e823eeb284e393b99e1ad5.png
+  thumbnail: https://s3.us-east-2.amazonaws.com/ccp-prd-s3-uploads/2022/3/8/03500108885898f010e823eeb284e393b99e1ad5.png
+  title:
+    en_us: Nord Vpn
+  category: Other
+  port_map: '8080'

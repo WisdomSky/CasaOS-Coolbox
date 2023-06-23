@@ -1,0 +1,30 @@
+name: drupal
+services:
+  app:
+    image: drupal:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source content management framework
+  tagline:
+    en_us: Open-source Content Management Framework
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/drupal.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/drupal.png
+  title:
+    en_us: Drupal
+  category: CMS
+  port_map: '80'

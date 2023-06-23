@@ -1,0 +1,34 @@
+name: edgeconnector-840d
+services:
+  app:
+    image: softingindustrial/edgeconnector-840d:v3-50
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 8099
+        published: 8099
+        protocol: tcp
+      - target: 4897
+        published: 4897
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Access Siemens SINUMERIK 840D sl/pl controllers and provide data via OPC UA and MQTT
+  tagline:
+    en_us: Access Siemens Sinumerik 840d Sl/pl Controllers And Provide Data Via Opc Ua And Mqtt
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png
+  title:
+    en_us: Edgeconnector 840d
+  category: edge

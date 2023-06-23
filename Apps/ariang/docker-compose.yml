@@ -1,0 +1,49 @@
+name: ariang
+services:
+  app:
+    image: hurlenko/aria2-ariang:1.3.4
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      ARIA2RPCPORT: ''
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: ARIA2RPCPORT
+          description:
+            en_us: ''
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/AriaNG
+        target: /aria2/conf
+      - type: bind
+        source: /portainer/Downloads
+        target: /aria2/data
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: AriaNg is a modern web frontend making aria2 easier to use. AriaNg is written in pure html & javascript, thus it does not need any compilers or runtime environment. You can just put AriaNg in your web server and open it in your browser. AriaNg uses responsive layout, and supports any desktop or mobile devices.
+  tagline:
+    en_us: Ariang Is A Modern Web Frontend Making Aria2 Easier To Use. Ariang Is Written In Pure Html & Javascript, Thus It Does Not Need Any Compilers Or Runtime Environment. You Can Just Put Ariang In Your Web Server And Open It In Your Browser. Ariang Uses Responsive Layout, And Supports Any Desktop Or Mobile Devices.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/ariang.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/ariang.png
+  title:
+    en_us: Ariang
+  category: Downloader
+  port_map: '8080'

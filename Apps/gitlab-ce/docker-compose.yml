@@ -1,0 +1,36 @@
+name: gitlab-ce
+services:
+  app:
+    image: gitlab/gitlab-ce:rc
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 22
+        published: 22
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source end-to-end software development platform
+  tagline:
+    en_us: Open-source End-to-end Software Development Platform
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png
+  title:
+    en_us: Gitlab Ce
+  category: development
+  port_map: '80'

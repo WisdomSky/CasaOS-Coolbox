@@ -1,0 +1,29 @@
+name: sshwifty
+services:
+  app:
+    image: niruix/sshwifty:0.2.35-beta-release
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8182
+        published: 8182
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Sshwifty is a SSH and Telnet connector made for the Web. It can be deployed on your computer or server to provide SSH and Telnet access interface for any compatible (standard) web browser.
+  tagline:
+    en_us: Sshwifty Is A Ssh And Telnet Connector Made For The Web. It Can Be Deployed On Your Computer Or Server To Provide Ssh And Telnet Access Interface For Any Compatible (standard) Web Browser.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/sshwifty-icon.png
+  thumbnail: https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/sshwifty-icon.png
+  title:
+    en_us: Sshwifty
+  category: Tools

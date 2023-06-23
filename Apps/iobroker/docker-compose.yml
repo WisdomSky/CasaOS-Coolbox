@@ -1,0 +1,41 @@
+name: iobroker
+services:
+  app:
+    image: buanet/iobroker:v8.0.1
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 8081
+        published: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/iobrokerdata
+        target: /opt/iobroker
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: 'IoBroker is a open source IoT platform written in JavaScript that easily connects smarthome components from different manufactures. With the help of plugins (called: adapters) ioBroker is able to communicate with a big variety of IoT hardware and services using different protocols and APIs.'
+  tagline:
+    en_us: 'Iobroker Is A Open Source Iot Platform Written In Javascript That Easily Connects Smarthome Components From Different Manufactures. With The Help Of Plugins (called: Adapters) Iobroker Is Able To Communicate With A Big Variety Of Iot Hardware And Services Using Different Protocols And Apis.'
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/buanet/ioBroker.docker/raw/main/docs/img/iobroker_logo.png
+  thumbnail: https://github.com/buanet/ioBroker.docker/raw/main/docs/img/iobroker_logo.png
+  title:
+    en_us: Iobroker
+  category: HomeAutomation

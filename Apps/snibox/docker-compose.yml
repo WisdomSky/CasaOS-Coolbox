@@ -1,0 +1,33 @@
+name: snibox
+services:
+  app:
+    image: snowmean/snibox-sqlite:20210317
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3010
+        published: 3000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/Snibox
+        target: /app/db/database
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Self-hosted snippet manager.
+  tagline:
+    en_us: Self-hosted Snippet Manager.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/snibox.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/snibox.png
+  title:
+    en_us: Snibox
+  category: Other

@@ -1,0 +1,36 @@
+name: deemix
+services:
+  app:
+    image: registry.gitlab.com/bockiii/deemix-docker
+    restart: unless-stopped
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 9666
+        published: 9666
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Config/DeeMix
+        target: /config
+      - type: bind
+        source: /portainer/Downloads
+        target: /downloads
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Deemix is a deezer downloader built from the ashes of Deezloader Remix.
+  tagline:
+    en_us: Deemix Is A Deezer Downloader Built From The Ashes Of Deezloader Remix.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/deemix.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/deemix.png
+  title:
+    en_us: Deemix
+  category: Other

@@ -1,0 +1,36 @@
+name: commandbox
+services:
+  app:
+    image: ortussolutions/commandbox:3.7.6
+    environment:
+      CFENGINE: ''
+    x-casaos:
+      envs:
+        - container: CFENGINE
+          description:
+            en_us: ''
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+      - target: 8443
+        published: 8443
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: ColdFusion (CFML) CLI
+  tagline:
+    en_us: Coldfusion (cfml) Cli
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-commandbox.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-commandbox.png
+  title:
+    en_us: Commandbox
+  category: development
+  port_map: '8080'

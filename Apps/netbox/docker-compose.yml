@@ -1,0 +1,30 @@
+name: netbox
+services:
+  app:
+    image: netboxcommunity/netbox:feature-2.6.1
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8000
+        published: 80
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: NetBox is an infrastructure resource modeling (IRM) application designed to empower network automation. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers.
+  tagline:
+    en_us: Netbox Is An Infrastructure Resource Modeling (irm) Application Designed To Empower Network Automation. Initially Conceived By The Network Engineering Team At Digitalocean, Netbox Was Developed Specifically To Address The Needs Of Network And Infrastructure Engineers.
+  developer: ''
+  author: WisdomSky
+  icon: https://github.com/xneo1/portainer_templates/raw/master/Images/netbox_icon.svg
+  thumbnail: https://github.com/xneo1/portainer_templates/raw/master/Images/netbox_icon.svg
+  title:
+    en_us: Netbox
+  category: Network
+  port_map: '8000'

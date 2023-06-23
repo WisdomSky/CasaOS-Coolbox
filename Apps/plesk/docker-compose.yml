@@ -1,0 +1,44 @@
+name: plesk
+services:
+  app:
+    image: plesk/plesk:18.0
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 21
+        published: 21
+        protocol: tcp
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+      - target: 8880
+        published: 8880
+        protocol: tcp
+      - target: 8443
+        published: 8443
+        protocol: tcp
+      - target: 8447
+        published: 8447
+        protocol: tcp
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: WebOps platform and hosting control panel
+  tagline:
+    en_us: Webops Platform And Hosting Control Panel
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plesk.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plesk.png
+  title:
+    en_us: Plesk
+  category: CMS
+  port_map: '80'

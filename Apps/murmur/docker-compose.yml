@@ -1,0 +1,57 @@
+name: murmur
+services:
+  app:
+    image: goofball222/murmur:1.3.4
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+        - container: TZ
+          description:
+            en_us: ''
+    ports:
+      - target: 64738
+        published: 64738
+        protocol: tcp
+      - target: 64738
+        published: 64738
+        protocol: udp
+    volumes:
+      - type: bind
+        source: /etc/localtime:ro
+        target: /etc/localtime
+      - type: bind
+        source: /DATA/Config/Murmur
+        target: /opt/murmur/config
+      - type: bind
+        source: /DATA/Murmur/data
+        target: /opt/murmur/data
+      - type: bind
+        source: /DATA/Murmur/log
+        target: /opt/murmur/log
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.
+  tagline:
+    en_us: Mumble Is A Voicechat Program For Gamers Written On Top Of Qt And Opus. Murmur Is The Server Backend For Mumble.
+  developer: ''
+  author: WisdomSky
+  icon: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/Mumble-logo.png
+  thumbnail: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/Mumble-logo.png
+  title:
+    en_us: Murmur
+  category: Other

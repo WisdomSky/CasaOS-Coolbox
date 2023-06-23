@@ -1,0 +1,34 @@
+name: dozzle
+services:
+  app:
+    image: amir20/dozzle:v4.10.15
+    restart: always
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 8888
+        published: 8080
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Dozzle is a small lightweight application with a web based interface to monitor Docker logs. It doesn’t store any log files. It is for live monitoring of your container logs only.
+  tagline:
+    en_us: Dozzle Is A Small Lightweight Application With A Web Based Interface To Monitor Docker Logs. It Doesn’t Store Any Log Files. It Is For Live Monitoring Of Your Container Logs Only.
+  developer: ''
+  author: WisdomSky
+  icon: https://dozzle.dev/favicon.ico
+  thumbnail: https://dozzle.dev/favicon.ico
+  title:
+    en_us: Dozzle
+  category: Tools
+  port_map: '8888'

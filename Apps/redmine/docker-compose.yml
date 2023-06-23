@@ -1,0 +1,29 @@
+name: redmine
+services:
+  app:
+    image: redmine:latest
+    environment: {}
+    x-casaos:
+      envs: []
+    ports:
+      - target: 3000
+        published: 3000
+        protocol: tcp
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Open-source project management tool
+  tagline:
+    en_us: Open-source Project Management Tool
+  developer: ''
+  author: WisdomSky
+  icon: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redmine.png
+  thumbnail: https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redmine.png
+  title:
+    en_us: Redmine
+  category: project-management

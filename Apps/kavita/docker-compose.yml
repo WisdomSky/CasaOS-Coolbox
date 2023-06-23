@@ -1,0 +1,44 @@
+name: kavita
+services:
+  app:
+    image: kizaing/kavita:0.7.3
+    restart: unless-stopped
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: ''
+        - container: PGID
+          description:
+            en_us: ''
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /portainer/Books
+        target: /books
+      - type: bind
+        source: /DATA/AppData/Config/kavita
+        target: /config
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: app
+  description:
+    en_us: Lighting fast with a slick design, Kavita is a rocket fueled self-hosted digital library which supports a vast array of file formats. Install to start reading and share your server with your friends.
+  tagline:
+    en_us: Lighting Fast With A Slick Design, Kavita Is A Rocket Fueled Self-hosted Digital Library Which Supports A Vast Array Of File Formats. Install To Start Reading And Share Your Server With Your Friends.
+  developer: ''
+  author: WisdomSky
+  icon: https://www.kavitareader.com/img/logo.png
+  thumbnail: https://www.kavitareader.com/img/logo.png
+  title:
+    en_us: Kavita
+  category: Books
