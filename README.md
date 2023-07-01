@@ -35,7 +35,7 @@ The CasaOS Coolbox is **guaranteed to provide you the latest version of every Ap
 
 Run the following command to install the appstore:
 ```bash
-casaos-cli app-management register app-store https://casaos-appstore.paodayag.dev/coolbox.zip
+casaos-cli app-management register app-store https://github.com/WisdomSky/CasaOS-Coolbox/archive/refs/heads/main.zip
 ```
 
 > **NOTE: Custom Appstore is only supported on CasaOS version [0.4.4](https://blog.casaos.io/blog/23.html) and above. How to upgrade? [Click here](#how-to-upgrade-casaos)**
